@@ -68,6 +68,8 @@
         <input type="tel" id="ftel" placeholder="500600700" pattern="[0-9]{9}">
     </div>  
     <br/>
+    <button onclick=autoFill()>Wypełnij danymi</button>
+    <br/>
     <div>
         <label for="default_input">Data</label>
         <input type="date" id="fdate" />
@@ -76,7 +78,7 @@
     <div>
         <!--TODO-->
         <label for="default_input">Data (dni robocze)</label>
-        <input type="date" id="fweekdaydate" min={dateMinValue()}  />
+        <input type="date" id="fweekdaydate" min="2022-10-17" max="2022-10-21"/>
     </div>
     <br/>
     <div>
@@ -94,8 +96,8 @@
         <input type="color" id="fcolor" />
     </div>
     <br/>
+    <button onclick=daneLosowe()>Dane losowe</button>
     </form>
-    <button onclick=autoFill()>Wypełnij danymi</button>
 </body>
 
 <script type="text/javascript">
@@ -113,15 +115,13 @@
         document.getElementById('linuxpath').value = "\\etc\\passwd";   
     }
 
-    function dateMinValue() {
-    today = new Date()-5;
-    const todayDate = today.getDate();
-    const todayDay = today.getDay();
-    const firstDayOfWeek = new Date(today.setDate(todayDate - todayDay));
-    // const lastDayOfWeek = new Date(firstDayOfWeek);
-    // lastDayOfWeek.setDate(lastDayOfWeek.getDate() + 5);
-    return today;// && date <= lastDayOfWeek;
+    function daneLosowe()
+    {
+        document.getElementById('fdate').value = "1995-05-12";
+        document.getElementById('fweekdaydate').value = "2022-10-18";
+        document.getElementById('ftime12').value = "09:35";
+        document.getElementById('ftime24').value = "23:59";
+        document.getElementById('fcolor').value = "#FFFFFF";
     }
-
 
   </script>
