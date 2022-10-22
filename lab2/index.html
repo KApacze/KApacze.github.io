@@ -43,7 +43,6 @@
     </div>
     <br/>
     <div>
-        <!--TODO ?-->
         <label for="default_input">Ścieżka do katalogu</label>
         <input type="text" id="fpath1" placeholder="d:\msdos" pattern="([a-zA-Z]:(\\[a-z0-9]+)*)*">
     </div>
@@ -69,6 +68,7 @@
     </div>  
     <br/>
     <button onclick=autoFill()>Wypełnij danymi</button>
+    <br/>
     <br/>
     <div>
         <label for="default_input">Data</label>
@@ -96,7 +96,6 @@
         <input type="color" id="fcolor" />
     </div>
     <br/>
-    <button onclick=daneLosowe()>Dane losowe</button>
     </form>
 </body>
 
@@ -113,15 +112,6 @@
         document.getElementById('fipv6').value = "2340:0023:AABA:0A01:0055:5054:9ABC:ABB0";
         document.getElementById('ftel').value = "900800123";   
         document.getElementById('linuxpath').value = "\\etc\\passwd";   
-    }
-
-    function daneLosowe()
-    {
-        document.getElementById('fdate').value = "1995-05-12";
-        document.getElementById('fweekdaydate').value = "2022-10-18";
-        document.getElementById('ftime12').value = "09:35";
-        document.getElementById('ftime24').value = "23:59";
-        document.getElementById('fcolor').value = "#FFFFFF";
     }
 
   </script>
