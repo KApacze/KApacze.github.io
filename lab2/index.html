@@ -76,17 +76,15 @@
     <div>
         <!--TODO-->
         <label for="default_input">Data (dni robocze)</label>
-        <input type="date" id="fdate"  />
+        <input type="date" id="fweekdaydate" min={dateMinValue()}  />
     </div>
     <br/>
     <div>
-        <!--TODO-->
         <label for="default_input">Godzina (format 12 godzinny)</label>
         <input type="time" id="ftime12" min="00:00" max="12:00" />
     </div>
     <br/>
     <div>
-        <!--TODO-->
         <label for="default_input">Godzina (format 24 godzinny)</label>
         <input type="time" id="ftime24"  min="00:00" max="24:00"/>
     </div>
@@ -113,6 +111,16 @@
         document.getElementById('fipv6').value = "2340:0023:AABA:0A01:0055:5054:9ABC:ABB0";
         document.getElementById('ftel').value = "900800123";   
         document.getElementById('linuxpath').value = "\\etc\\passwd";   
+    }
+
+    function dateMinValue() {
+    today = new Date()-5;
+    const todayDate = today.getDate();
+    const todayDay = today.getDay();
+    const firstDayOfWeek = new Date(today.setDate(todayDate - todayDay));
+    // const lastDayOfWeek = new Date(firstDayOfWeek);
+    // lastDayOfWeek.setDate(lastDayOfWeek.getDate() + 5);
+    return today;// && date <= lastDayOfWeek;
     }
 
 
