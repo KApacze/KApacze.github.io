@@ -38,8 +38,9 @@
     </div>
     <br/>
     <div>
+        <!--TODO-->
         <label for="default_input">Strona www</label>
-        <input type="url" id="fwww" placeholder="http://weeia.p.lodz.pl" >
+        <input type="text" id="fwww" placeholder="http://weeia.p.lodz.pl" pattern="[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" >
     </div>
     <br/>
     <div>
@@ -48,6 +49,7 @@
     </div>
     <br/>
     <div>
+                <!--TODO-->
         <label for="default_input">Ścieżka katalogu (case sensetive)</label>
         <input type="text" id="fpath2" placeholder="D:\windows\temp" pattern="([a-zA-Z]{1}:(\\w+)*">
     </div>  
@@ -73,8 +75,26 @@
     </div>
     <br/>
     <div>
+        <!--TODO-->
         <label for="default_input">Data (dni robocze)</label>
         <input type="date" id="fdate" />
+    </div>
+    <br/>
+    <div>
+        <!--TODO-->
+        <label for="default_input">Godzina (format 12 godzinny)</label>
+        <input type="time" id="ftime12" />
+    </div>
+    <br/>
+    <div>
+        <!--TODO-->
+        <label for="default_input">Godzina (format 24 godzinny)</label>
+        <input type="time" id="ftime24" />
+    </div>
+    <br/>
+    <div>
+        <label for="default_input">Kolor</label>
+        <input type="color" id="fcolor" />
     </div>
     <br/>
     </form>
@@ -95,4 +115,6 @@
         document.getElementById('ftel').value = "900800123";   
         document.getElementById('linuxpath').value = "\\etc\\passwd";   
     }
+
+
   </script>
