@@ -52,3 +52,22 @@ var listItens = document.querySelectorAll('.draggable');
 [].forEach.call(listItens, function(item) {
   addEventsDragAndDrop(item);
 });
+
+function createDiv() {
+  var shape = document.createElement("div");
+  shape.className = "draggable butNotHere";
+  shape.style.height = "150px";
+  shape.style.width = "150px";
+  shape.style.backgroundColor = "#" + ((1<<24)*Math.random() | 0).toString(16);
+  shape.style.position = "absolute";
+  shape.style.top ="20%";
+  shape.style.left ="20%";
+  $(shape).draggable({
+      obstacle:".butNotHere",
+      preventCollision: true,
+      containment: "#board",
+      start: function(event,ui) {$(this).removeClass('butNotHere');},
+      stop: function(event,ui) {$(this).addClass('butNotHere');}
+   });
+  document.querySelector("#blockgen").appendChild(shape);
+};

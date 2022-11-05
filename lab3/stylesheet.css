@@ -1,20 +1,50 @@
 .container {
     display: table;
     width: 100%;
+    background-color: red;
+
 }
 
 .draggableList {
-    width: 10%;
+    width: 30%;
     position: absolute;
-  left: 0px;
+    left: 0px;
+
     /* outline: 3px solid; 
     outline-offset: 3px; */
 }
 
 .draggableSquares {
   position: absolute;
+display: flex;
   right: 0px;
-  width: 50%;
+  width: 70%;
+  height: 100%;
+  flex-direction: column;
+
     /* outline: 3px solid; 
     outline-offset: 3px; */
+    /* background-color: blue; */
+}
+
+.platform {
+    height: 80%;
+    width: 100%;
+    /* outline: 3px solid; 
+    outline-offset: 3px; */
+    top: 0px;
+    position: relative;
+}
+
+.generateButton {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    height: 20%;
+
+}
+
+.generateButton {
+    display: block;
+    width: 100%;
 }
