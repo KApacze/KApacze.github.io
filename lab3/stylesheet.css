@@ -1,0 +1,11 @@
+.draggableList {
+    width: 30%;
+    /* outline: 3px solid; 
+    outline-offset: 3px; */
+}
+
+.draggableSquares {
+    width: 70%;
+    /* outline: 3px solid; 
+    outline-offset: 3px; */
+}
