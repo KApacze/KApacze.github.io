@@ -11,8 +11,8 @@ if (!window.indexedDB) {
 }
 
 const clientData = [
-    { id: "00-01", name: "jan", surname: "kowalski", email: "jan.kowalski@gmail.com", phone: 500600700 },
-    { id: "00-01", name: "piotr", surname: "nowak", email: "piotr.nowak@gmail.com", phone: 500600701 }
+    { name: "jan", surname: "kowalski", email: "jan.kowalski@gmail.com", phone: 500600700 },
+    { name: "piotr", surname: "nowak", email: "piotr.nowak@gmail.com", phone: 500600701 }
 ];
 var db;
 var request = window.indexedDB.open("newDatabase", 1);
@@ -28,7 +28,7 @@ request.onsuccess = function(event) {
 
 request.onupgradeneeded = function(event) {
     var db = event.target.result;
-    var objectStore = db.createObjectStore("employee", {keyPath: "id"});
+    var objectStore = db.createObjectStore("employee", { keyPath: "id", autoIncrement:true });
 
     for (var i in clientData) {
         objectStore.add(clientData[i]);
@@ -73,20 +73,6 @@ function readAll() {
     };
 }
 
-function add() {
-    var request = db.transaction(["employee"], "readwrite")
-        .objectStore("employee")
-        .add({ id: "00-03", name: "Kenny", age: 19, email: "kenny@planet.org" });
-
-    request.onsuccess = function(event) {
-        alert("Kenny has been added to your database.");
-    };
-
-    request.onerror = function(event) {
-        alert("Unable to add data\r\nKenny is aready exist in your database! ");
-    }
-}
-
 function remove() {
     var request = db.transaction(["employee"], "readwrite")
         .objectStore("employee")
@@ -96,3 +82,30 @@ function remove() {
         alert("Kenny's entry has been removed from your database.");
     };
 }
+
+
+function addEmployee() {
+    var name = $('#fname').val();
+    var surname = $('#fsurname').val();
+    var email = $('#femail').val();
+    var phone = $('#fphone').val();
+    var request = db.transaction(["employee"], "readwrite")
+        .objectStore("employee")
+        .add({
+            name: name,
+            surname: surname,
+            email: email,
+            phone: phone
+        });
+
+
+    request.onsuccess = function (event) {
+        loadTable();
+        clearButtons();
+    };
+
+    request.onerror = function (event) {
+        alert("error");
+    }
+}
+
