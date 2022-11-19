@@ -11,11 +11,12 @@ if (!window.indexedDB) {
 }
 
 const clientData = [
-    { name: "jan", surname: "kowalski", email: "jan.kowalski@gmail.com", phone: 500600700 },
-    { name: "piotr", surname: "nowak", email: "piotr.nowak@gmail.com", phone: 500600701 }
+    { name: "jan", surname: "kowalski", email: "jan.kowalski@gmail.com", phone: "500600700" },
+    { name: "piotr", surname: "nowak", email: "piotr.nowak@gmail.com", phone: "500600701" }
 ];
+
 var db;
-var request = window.indexedDB.open("newDatabase", 1);
+var request = window.indexedDB.open("clientDatabase", 1);
 
 request.onerror = function(event) {
     console.log("error: ");
@@ -23,7 +24,9 @@ request.onerror = function(event) {
 
 request.onsuccess = function(event) {
     db = request.result;
-    console.log("success: "+ db);
+    console.log("init success: "+ db);
+
+    loadTable();
 };
 
 request.onupgradeneeded = function(event) {
@@ -101,11 +104,38 @@ function addEmployee() {
 
     request.onsuccess = function (event) {
         loadTable();
-        clearButtons();
+        // clearButtons();
     };
 
     request.onerror = function (event) {
         alert("error");
     }
+}
+
+function loadTable() {
+    var employees = "";
+    $('.employee').remove();
+
+    var objectStore = db.transaction("employee").objectStore("employee");
+    objectStore.openCursor().onsuccess = function (event) {
+        var cursor = event.target.result;
+        if (cursor) {
+            employees = employees.concat(
+                '<tr class="employee">' +
+                '<td class="ID">' + cursor.key + '</td>' +
+                '<td class="Imie">' + cursor.value.name + '</td>' +
+                '<td class="Nazwisko">' + cursor.value.surname + '</td>' +
+                '<td class="Email">' + cursor.value.email + '</td>' +
+                 '<td class="Telefon">' + cursor.value.phone + '</td>' +
+                '</tr>');
+            cursor.continue(); // wait for next event
+        } else {
+            $('thead').after(employees); // no more events
+        }
+        indexedDB.databases().then(r => console.log(r))
+
+
+
+    };
 }
 
