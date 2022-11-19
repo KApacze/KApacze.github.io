@@ -6,13 +6,32 @@
 <div id="container">
     <div id="client_form">
         <form>
-
-        </form>
+            <div>
+                <label>Imie</label>
+                <input type="text" id="fname" placeholder="Jan" >
+            </div>
+            <div>
+                <label>Nazwisko</label>
+                <input type="text" id="fsurname" placeholder="Kowalski" >
+            </div>
+            <div>
+                <label>Adres email</label>
+                <input type="email" id="femail" placeholder="index@gmail.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$">
+            </div>
+            <div>
+                <label>Numer telefonu</label>
+                <input type="tel" id="ftel" placeholder="500600700" pattern="[0-9]{9}">
+            </div>          </form>
         <br/>
         <button>Dodaj klienta</button>
     </div>
     <div id="client_management">
+        <form>
 
+        </form>
+        <button>
+            Zmien status
+        </button>
     </div>
     <div id="client_list">
 
