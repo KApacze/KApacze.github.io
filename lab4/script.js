@@ -87,7 +87,7 @@ function remove() {
 }
 
 
-function addEmployee() {
+function addClient() {
     var name = $('#fname').val();
     var surname = $('#fsurname').val();
     var email = $('#femail').val();
@@ -132,10 +132,6 @@ function loadTable() {
         } else {
             $('thead').after(employees); // no more events
         }
-        indexedDB.databases().then(r => console.log(r))
-
-
-
     };
 }
 
