@@ -38,54 +38,6 @@ request.onupgradeneeded = function(event) {
     }
 }
 
-function read() {
-    var transaction = db.transaction(["employee"]);
-    var objectStore = transaction.objectStore("employee");
-    var request = objectStore.get("00-03");
-
-    request.onerror = function(event) {
-        alert("Unable to retrieve daa from database!");
-    };
-
-    request.onsuccess = function(event) {
-        // Do something with the request.result!
-        if(request.result) {
-            alert("Name: " + request.result.name
-                + ", Surname: " + request.result.surname + ", Email: " + request.result.email
-            + ", Phone: " + request.result.phone);
-        } else {
-            alert("Client couldn't be found in your database!");
-        }
-    };
-}
-
-function readAll() {
-    var objectStore = db.transaction("employee").objectStore("employee");
-
-    objectStore.openCursor().onsuccess = function(event) {
-        var cursor = event.target.result;
-
-        if (cursor) {
-            alert("Name for id " + cursor.key + " is " + cursor.value.name
-                + ", Surname: " + cursor.value.surname + ", Email: " + cursor.value.email
-            + ", Phone: " + cursor.value.phone);
-            cursor.continue();
-        } else {
-            alert("No more entries!");
-        }
-    };
-}
-
-function remove() {
-    var request = db.transaction(["employee"], "readwrite")
-        .objectStore("employee")
-        .delete("00-03");
-
-    request.onsuccess = function(event) {
-        alert("Kenny's entry has been removed from your database.");
-    };
-}
-
 
 function addClient() {
     var name = $('#fname').val();
@@ -104,7 +56,6 @@ function addClient() {
 
     request.onsuccess = function (event) {
         loadTable();
-        // clearButtons();
     };
 
     request.onerror = function (event) {
@@ -135,3 +86,22 @@ function loadTable() {
     };
 }
 
+function deleteClient() {
+    var employeeID = $('#fid').val();
+    var id = parseInt(employeeID);
+    var record = db.transaction(["employee"], "readwrite")
+        .objectStore("employee")
+        .get(id);
+    record.onsuccess = function(e) {
+        console.log(e.target.result);
+    };
+
+    var request = db.transaction(["employee"], "readwrite")
+        .objectStore("employee")
+        .delete(id);
+
+    request.onsuccess = function (event) {
+        console.log('delete success: ', 1)
+        loadTable();
+    };
+};
