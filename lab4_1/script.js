@@ -105,3 +105,13 @@ function deleteClient() {
         loadTable();
     };
 };
+
+function autoFill() {
+    document.getElementById('fname').value = "Jan";
+    document.getElementById('fsurname').value = "Kowalski";
+    document.getElementById('femail').value = "index.gmail.com";
+    document.getElementById('fpost').value = "60200";
+    document.getElementById('fNIP').value = "7271062488";
+    document.getElementById('fcivil').value = "ABS123456";
+    document.getElementById('fphone').value = "900800123";   
+}
