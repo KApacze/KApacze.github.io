@@ -11,8 +11,8 @@ if (!window.indexedDB) {
 }
 
 const clientData = [
-    { name: "jan", surname: "kowalski", email: "jan.kowalski@gmail.com", phone: "500600700" },
-    { name: "piotr", surname: "nowak", email: "piotr.nowak@gmail.com", phone: "500600701" }
+    { name: "jan", surname: "kowalski", email: "jan.kowalski@gmail.com", phone: "500600700", post: "78299", civilId: "ABC156156" },
+    { name: "piotr", surname: "nowak", email: "piotr.nowak@gmail.com", phone: "500600701", post: "70050", civilId: "GRA156541" }
 ];
 
 var db;
@@ -44,13 +44,17 @@ function addClient() {
     var surname = $('#fsurname').val();
     var email = $('#femail').val();
     var phone = $('#fphone').val();
+    var post  = $('#fpost').val();
+    var civil = $('#fcivil').val();
     var request = db.transaction(["employee"], "readwrite")
         .objectStore("employee")
         .add({
             name: name,
             surname: surname,
             email: email,
-            phone: phone
+            phone: phone,
+            post: post,
+            civilId: civil
         });
 
 
@@ -113,5 +117,5 @@ function autoFill() {
     document.getElementById('fpost').value = "60200";
     document.getElementById('fNIP').value = "7271062488";
     document.getElementById('fcivil').value = "ABS123456";
-    document.getElementById('fphone').value = "900800123";   
+    document.getElementById('fphone').value = "500600700";   
 }
