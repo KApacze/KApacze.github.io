@@ -149,9 +149,14 @@ function editClientInfo() {
     
     request.onsuccess = function(e) {
         var data = e.target.result;
+        data.name =  $('#fname_edit').val();
         data.surname =  $('#fsurname_edit').val();
-    
-        var objRequest = store.put(data, id);
+        data.email =  $('#femail_edit').val();
+        data.phone =  $('#fphone_edit').val();
+        data.post =  $('#fpost_edit').val();
+        data.civilId =  $('#fcivil_edit').val();
+
+        var objRequest = store.put(data, data.primaryKey);
     
         objRequest.onsuccess = function(e){
             console.log('Success in updating record');
