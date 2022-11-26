@@ -140,7 +140,24 @@ function findClientToEdit() {
 };
 
 function editClientInfo() {
-
+    var employeeID = $('#fid_edit').val();
+    var id = parseInt(employeeID);
+   
+    var transaction = db.transaction(["employee"],"readwrite");
+    var store = transaction.objectStore("employee");
+    var request = store.get(id);
+    
+    request.onsuccess = function(e) {
+        var data = e.target.result;
+        data.surname =  $('#fsurname_edit').val();
+    
+        var objRequest = store.put(data, id);
+    
+        objRequest.onsuccess = function(e){
+            console.log('Success in updating record');
+            loadTable();
+        };
+    }
 }
 
 function autoFill() {
