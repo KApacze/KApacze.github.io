@@ -128,7 +128,14 @@ function findClientToEdit() {
     document.getElementById('femail_edit').value = result.email;
     document.getElementById('fpost_edit').value = result.post;
     document.getElementById('fcivil_edit').value = result.civilId;
-    document.getElementById('fphone_edit').value = result.phone;   
+    document.getElementById('fphone_edit').value = result.phone;  
+    
+    document.getElementById('fname_edit').disabled = false;
+    document.getElementById('fsurname_edit').disabled = false;
+    document.getElementById('femail_edit').disabled = false;
+    document.getElementById('fpost_edit').disabled = false;
+    document.getElementById('fcivil_edit').disabled = false;
+    document.getElementById('fphone_edit').disabled = false;   
     };
 };
 
