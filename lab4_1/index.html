@@ -44,7 +44,7 @@
         <form>
             <div>
                 <label>Identyfikator klienta do usunięcia z listy</label>
-                <input type="number" id="fid" placeholder="01" ">
+                <input type="number" id="fid" placeholder="01" >
             </div>
         </form>
         <button onClick=deleteClient()>
@@ -54,6 +54,38 @@
     <br/>
     <div id="client_edit">
         <h2>Edytuj klienta</h2>
+        <form>
+            <div>
+                <label>Identyfikator klienta do edycji</label>
+                <input type="number" id="fid_edit" placeholder="01" >
+            </div>
+        </form>
+        <form>
+            <div>
+                <label>Imie</label>
+                <input type="text" id="fname_edit" disabled >
+            </div>
+            <div>
+                <label>Nazwisko</label>
+                <input type="text" id="fsurname_edit" disabled>
+            </div>
+            <div>
+                <label>Adres email</label>
+                <input type="email" id="femail_edit" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" disabled>
+            </div>
+            <div>
+                <label>Numer telefonu</label>
+                <input type="number" id="fphone_edit"  pattern="[0-9]{9}" disabled>
+            </div>
+            <div>
+                <label for="default_input">Kod pocztowy</label>
+                <input type="text" id="fpost_edit" disabled>
+            </div>
+            <div>
+                <label for="default_input">Numer dowodu</label>
+                <input type="text" id="fcivil_edit" pattern="[A-za-z]{3}[0-9]{6}" disabled>
+            </div>
+        </form>
     </div>
 
     <br/>
