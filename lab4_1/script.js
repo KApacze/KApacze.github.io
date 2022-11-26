@@ -82,6 +82,9 @@ function loadTable() {
                 '<td class="Nazwisko">' + cursor.value.surname + '</td>' +
                 '<td class="Email">' + cursor.value.email + '</td>' +
                  '<td class="Telefon">' + cursor.value.phone + '</td>' +
+                 '<td class="Kod pocztowy">' + cursor.value.post + '</td>' +
+                 '<td class="Nr dowodu">' + cursor.value.civilId + '</td>' +
+
                 '</tr>');
             cursor.continue(); // wait for next event
         } else {
@@ -115,7 +118,6 @@ function autoFill() {
     document.getElementById('fsurname').value = "Kowalski";
     document.getElementById('femail').value = "index.gmail.com";
     document.getElementById('fpost').value = "60200";
-    document.getElementById('fNIP').value = "7271062488";
     document.getElementById('fcivil').value = "ABS123456";
     document.getElementById('fphone').value = "500600700";   
 }
