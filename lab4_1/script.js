@@ -113,6 +113,29 @@ function deleteClient() {
     };
 };
 
+function findClientToEdit() {
+    var employeeID = $('#fid_edit').val();
+    var id = parseInt(employeeID);
+    var record = db.transaction(["employee"], "readwrite")
+        .objectStore("employee")
+        .get(id);
+    record.onsuccess = function(e) {
+        result = e.target.result;
+
+
+    document.getElementById('fname_edit').value = result.name;
+    document.getElementById('fsurname_edit').value = result.surname;
+    document.getElementById('femail_edit').value = result.email;
+    document.getElementById('fpost_edit').value = result.post;
+    document.getElementById('fcivil_edit').value = result.civilId;
+    document.getElementById('fphone_edit').value = result.phone;   
+    };
+};
+
+function editClientInfo() {
+
+}
+
 function autoFill() {
     document.getElementById('fname').value = "Jan";
     document.getElementById('fsurname').value = "Kowalski";
