@@ -166,10 +166,19 @@ function editClientInfo() {
 }
 
 function autoFill() {
-    document.getElementById('fname').value = "Jan";
-    document.getElementById('fsurname').value = "Kowalski";
-    document.getElementById('femail').value = "index.gmail.com";
-    document.getElementById('fpost').value = "60200";
-    document.getElementById('fcivil').value = "ABS123456";
-    document.getElementById('fphone').value = "500600700";   
+
+    const name = ["Asia", "Bogdan", "Grzesiek", "Tomek", "Anna", "Ola", "Adrian"];
+    const surname = ["Kowalski", "Nowak", "Jozefowicz", "Skrzynka", "Beczka", "Piach", "Slot"];
+    const email = ["xyz@gmail.com", "abs@gmail.com", "xyz@wp.pl", "abc@wp.pl"];
+    const post = ["90100", "91200", "52000", "50220", "11123", "12543", "76802"];
+    const civil = ["ABC12345", "XYZ987654", "ABC987654", "XYZ123456"];
+    const phone = ["500200100", "600500200", "700300650"];
+
+
+    document.getElementById('fname').value = name[Math.floor(Math.random() * name.length)];
+    document.getElementById('fsurname').value = surname[Math.floor(Math.random() * surname.length)];
+    document.getElementById('femail').value = email[Math.floor(Math.random() * email.length)];
+    document.getElementById('fpost').value = post[Math.floor(Math.random() * post.length)];
+    document.getElementById('fcivil').value = civil[Math.floor(Math.random() * civil.length)];
+    document.getElementById('fphone').value = phone[Math.floor(Math.random() * phone.length)];   
 }
