@@ -135,7 +135,10 @@ function findClientToEdit() {
     document.getElementById('femail_edit').disabled = false;
     document.getElementById('fpost_edit').disabled = false;
     document.getElementById('fcivil_edit').disabled = false;
-    document.getElementById('fphone_edit').disabled = false;   
+    document.getElementById('fphone_edit').disabled = false;
+
+    document.getElementById('fid_edit').disabled = true;   
+ 
     };
 };
 
@@ -161,8 +164,29 @@ function editClientInfo() {
         objRequest.onsuccess = function(e){
             console.log('Success in updating record');
             loadTable();
+
+            document.getElementById('fname_edit').disabled = true;
+            document.getElementById('fsurname_edit').disabled = true;
+            document.getElementById('femail_edit').disabled = true;
+            document.getElementById('fpost_edit').disabled = true;
+            document.getElementById('fcivil_edit').disabled = true;
+            document.getElementById('fphone_edit').disabled = true;
+        
+            document.getElementById('fid_edit').disabled = false;  
         };
     }
+}
+
+function cancelEdit() {
+    document.getElementById('fname_edit').disabled = true;
+    document.getElementById('fsurname_edit').disabled = true;
+    document.getElementById('femail_edit').disabled = true;
+    document.getElementById('fpost_edit').disabled = true;
+    document.getElementById('fcivil_edit').disabled = true;
+    document.getElementById('fphone_edit').disabled = true;
+
+    document.getElementById('fid_edit').disabled = false;  
+
 }
 
 function autoFill() {
