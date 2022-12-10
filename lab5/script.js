@@ -18,6 +18,8 @@ const clientData = [
 var db;
 var request = window.indexedDB.open("clientDatabase", 1);
 
+var deleteButton = "<button onClick=addClient()>X</button>"
+
 request.onerror = function(event) {
     console.log("error: ");
 };
@@ -84,7 +86,7 @@ function loadTable() {
                  '<td class="Telefon">' + cursor.value.phone + '</td>' +
                  '<td class="Kod pocztowy">' + cursor.value.post + '</td>' +
                  '<td class="Nr dowodu">' + cursor.value.civilId + '</td>' +
-
+                 '<td class="Nr dowodu">' + deleteButton + '</td>' +
                 '</tr>');
             cursor.continue(); // wait for next event
         } else {
