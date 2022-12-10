@@ -102,8 +102,9 @@
     <div id="client_list">
         <h2>Tabela klientów</h2>
         <div id="filter_clients">
-            <input type="text" placeholder="Przeszukaj table"/>
-            <button onClick=loadTable()>Szukaj</button>
+            <input id="searchField" type="text" placeholder="Przeszukaj table"/>
+            <button onClick=filterTable()>Szukaj</button>
+            <button onClick=loadTable()>Odśwież całą tabelę</button>
             <br/>
         </div>
         <table style="border: 1px solid">
@@ -119,7 +120,6 @@
                 <th style="width: auto">Edytuj</th>
             </thead>
         </table>
-
     </div>
 </div>
 </body>

@@ -75,6 +75,7 @@ function loadTable() {
     var objectStore = db.transaction("employee").objectStore("employee");
     objectStore.openCursor().onsuccess = function (event) {
         var cursor = event.target.result;
+
         if (cursor) {
             employees = employees.concat(
                 '<tr class="employee">' +
@@ -94,6 +95,13 @@ function loadTable() {
         }
     };
 }
+
+function filterTable() {
+    searchedPhrase = $('#searchField').val();
+    
+}
+
+
 
 function deleteClient() {
     var employeeID = $('#fid').val();
