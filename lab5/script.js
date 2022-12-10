@@ -98,7 +98,40 @@ function loadTable() {
 
 function filterTable() {
     searchedPhrase = $('#searchField').val();
-    
+    var employees = "";
+    $('.employee').remove();
+
+    var objectStore = db.transaction("employee").objectStore("employee");
+    objectStore.openCursor().onsuccess = function (event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+            if((cursor.key.toString() +
+            cursor.value.name.toLowerCase() +
+            cursor.value.surname.toLowerCase() +
+            cursor.value.phone.toString() +
+            cursor.value.email.toLowerCase() +
+            cursor.value.post.toLowerCase() +
+            cursor.value.civilId.toLowerCase()).includes($('#searchField').val().toLowerCase().replace(/ /g,'')))
+            {
+            employees = employees.concat(
+                '<tr class="employee">' +
+                '<td class="ID">' + cursor.key + '</td>' +
+                '<td class="Imie">' + cursor.value.name + '</td>' +
+                '<td class="Nazwisko">' + cursor.value.surname + '</td>' +
+                '<td class="Email">' + cursor.value.email + '</td>' +
+                 '<td class="Telefon">' + cursor.value.phone + '</td>' +
+                 '<td class="Kod pocztowy">' + cursor.value.post + '</td>' +
+                 '<td class="Nr dowodu">' + cursor.value.civilId + '</td>' +
+                 '<td class="Delete button"><button style="background-color:red;" onClick="deleteClientById(\'' + cursor.key + '\')">X</button>' +
+                 '<td class="Edit button"><button style="background-color:blue;" onClick="editClientOfId(\'' + cursor.key + '\')">Edytuj</button>' +
+                '</tr>');
+            }
+            cursor.continue(); // wait for next event
+        } else {
+            $('thead').after(employees); // no more events
+        }
+    }; 
 }
 
 
