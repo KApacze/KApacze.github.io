@@ -52,6 +52,29 @@
         </button>
     </div> -->
     <br/>
+    <div id="client_list">
+        <h2>Tabela klientów</h2>
+        <div id="filter_clients">
+            <input id="searchField" type="text" placeholder="Przeszukaj table"/>
+            <button onClick=filterTable()>Szukaj</button>
+            <button onClick=loadTable()>Odśwież całą tabelę</button>
+            <br/>
+        </div>
+        <table style="border: 1px solid">
+            <thead>
+                <th style="width: auto">ID</th>
+                <th style="width: auto">Imie</th>
+                <th style="width: auto">Nazwisko</th>
+                <th style="width: auto">Email</th>
+                <th style="width: auto">Phone</th>
+                <th style="width: auto">Nr dowodu</th>
+                <th style="width: auto">Kod pocztowy</th>
+                <th style="width: auto">Usuń</th>
+                <th style="width: auto">Edytuj</th>
+            </thead>
+        </table>
+    </div>
+    <br/>
     <div id="client_edit">
         <h2>Edytuj klienta</h2>
         <form>
@@ -96,30 +119,6 @@
         <button onClick=cancelEdit()>
             Anuluj
         </button>
-    </div>
-
-    <br/>
-    <div id="client_list">
-        <h2>Tabela klientów</h2>
-        <div id="filter_clients">
-            <input id="searchField" type="text" placeholder="Przeszukaj table"/>
-            <button onClick=filterTable()>Szukaj</button>
-            <button onClick=loadTable()>Odśwież całą tabelę</button>
-            <br/>
-        </div>
-        <table style="border: 1px solid">
-            <thead>
-                <th style="width: auto">ID</th>
-                <th style="width: auto">Imie</th>
-                <th style="width: auto">Nazwisko</th>
-                <th style="width: auto">Email</th>
-                <th style="width: auto">Phone</th>
-                <th style="width: auto">Nr dowodu</th>
-                <th style="width: auto">Kod pocztowy</th>
-                <th style="width: auto">Usuń</th>
-                <th style="width: auto">Edytuj</th>
-            </thead>
-        </table>
     </div>
 </div>
 </body>
