@@ -18,7 +18,6 @@ const clientData = [
 var db;
 var request = window.indexedDB.open("clientDatabase", 1);
 
-var deleteButton = "<button onClick=addClient()>X</button>"
 
 request.onerror = function(event) {
     console.log("error: ");
@@ -86,7 +85,7 @@ function loadTable() {
                  '<td class="Telefon">' + cursor.value.phone + '</td>' +
                  '<td class="Kod pocztowy">' + cursor.value.post + '</td>' +
                  '<td class="Nr dowodu">' + cursor.value.civilId + '</td>' +
-                 '<td class="Nr dowodu">' + deleteButton + '</td>' +
+                 '<td class="Delete button"><button style="background-color:red;" onClick="deleteClientById(\'' + cursor.key + '\')">X</button>' +
                 '</tr>');
             cursor.continue(); // wait for next event
         } else {
@@ -98,6 +97,26 @@ function loadTable() {
 function deleteClient() {
     var employeeID = $('#fid').val();
     var id = parseInt(employeeID);
+    var record = db.transaction(["employee"], "readwrite")
+        .objectStore("employee")
+        .get(id);
+    record.onsuccess = function(e) {
+        console.log(e.target.result);
+    };
+
+    var request = db.transaction(["employee"], "readwrite")
+        .objectStore("employee")
+        .delete(id);
+
+    request.onsuccess = function (event) {
+        console.log('delete success: ', 1)
+        loadTable();
+    };
+};
+
+
+function deleteClientById(clientId) {
+    var id = parseInt(clientId);
     var record = db.transaction(["employee"], "readwrite")
         .objectStore("employee")
         .get(id);
