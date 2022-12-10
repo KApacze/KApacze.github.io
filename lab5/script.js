@@ -267,7 +267,7 @@ function editClientInfo() {
             document.getElementById('fcivil_edit').disabled = true;
             document.getElementById('fphone_edit').disabled = true;
         
-            document.getElementById('fid_edit').disabled = false;  
+            document.getElementById('fid_edit').disabled = true;  
         };
     }
 }
