@@ -86,6 +86,7 @@ function loadTable() {
                  '<td class="Kod pocztowy">' + cursor.value.post + '</td>' +
                  '<td class="Nr dowodu">' + cursor.value.civilId + '</td>' +
                  '<td class="Delete button"><button style="background-color:red;" onClick="deleteClientById(\'' + cursor.key + '\')">X</button>' +
+                 '<td class="Edit button"><button style="background-color:blue;" onClick="editClientOfId(\'' + cursor.key + '\')">Edytuj</button>' +
                 '</tr>');
             cursor.continue(); // wait for next event
         } else {
