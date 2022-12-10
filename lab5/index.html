@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+    <title>Lab4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="client_form">
+        <h2>Dodaj klienta</h2>
+        <form>
+            <div>
+                <label>Imie</label>
+                <input type="text" id="fname" placeholder="Jan" >
+            </div>
+            <div>
+                <label>Nazwisko</label>
+                <input type="text" id="fsurname" placeholder="Kowalski" >
+            </div>
+            <div>
+                <label>Adres email</label>
+                <input type="email" id="femail" placeholder="index@gmail.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$">
+            </div>
+            <div>
+                <label>Numer telefonu</label>
+                <input type="number" id="fphone" placeholder="500600700" pattern="[0-9]{9}">
+            </div>
+            <div>
+                <label for="default_input">Kod pocztowy</label>
+                <input type="text" id="fpost" placeholder="60-200">
+            </div>
+            <div>
+                <label for="default_input">Numer dowodu</label>
+                <input type="text" id="fcivil" placeholder="ABS123456" pattern="[A-za-z]{3}[0-9]{6}">
+            </div>
+        </form>
+        <br/>
+        <button onClick=addClient()>Dodaj klienta</button>
+        <button onclick=autoFill()>Wypełnij danymi</button>
+    </div>
+    <br/><br/>
+    <div id="client_removal">
+        <h2>Usun klienta</h2>
+        <form>
+            <div>
+                <label>Identyfikator klienta do usunięcia z listy</label>
+                <input type="number" id="fid" placeholder="01" >
+            </div>
+        </form>
+        <button onClick=deleteClient()>
+            Usun klienta
+        </button>
+    </div>
+    <br/>
+    <div id="client_edit">
+        <h2>Edytuj klienta</h2>
+        <form>
+            <div>
+                <label>Identyfikator klienta do edycji</label>
+                <input type="number" id="fid_edit" placeholder="01" >
+            </div>
+        </form>
+        <button onClick=findClientToEdit()>
+            Znajdź klienta
+        </button>
+        <br/>
+        <form>
+            <div>
+                <label>Imie</label>
+                <input type="text" id="fname_edit" disabled >
+            </div>
+            <div>
+                <label>Nazwisko</label>
+                <input type="text" id="fsurname_edit" disabled>
+            </div>
+            <div>
+                <label>Adres email</label>
+                <input type="email" id="femail_edit" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" disabled>
+            </div>
+            <div>
+                <label>Numer telefonu</label>
+                <input type="number" id="fphone_edit"  pattern="[0-9]{9}" disabled>
+            </div>
+            <div>
+                <label for="default_input">Kod pocztowy</label>
+                <input type="text" id="fpost_edit" disabled>
+            </div>
+            <div>
+                <label for="default_input">Numer dowodu</label>
+                <input type="text" id="fcivil_edit" pattern="[A-za-z]{3}[0-9]{6}" disabled>
+            </div>
+        </form>
+        <button onClick=editClientInfo()>
+            Zaktualizuj klienta
+        </button>
+        <button onClick=cancelEdit()>
+            Anuluj
+        </button>
+    </div>
+
+    <br/>
+    <div id="client_list">
+        <h2>Tabela klientów</h2>
+        <table style="border: 1px solid">
+            <thead>
+                <th style="width: auto">ID</th>
+                <th style="width: auto">Imie</th>
+                <th style="width: auto">Nazwisko</th>
+                <th style="width: auto">Email</th>
+                <th style="width: auto">Phone</th>
+                <th style="width: auto">Nr dowodu</th>
+                <th style="width: auto">Kod pocztowy</th>
+            </thead>
+        </table>
+
+    </div>
+</div>
+</body>
