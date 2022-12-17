@@ -20,8 +20,11 @@ var request = window.indexedDB.open("clientDatabase", 1);
 
 
 request.onerror = function(event) {
-    console.log("error: ");
+    console.log("error:", event);
+    console.log("Can't use IndexedDb");
+
 };
+
 
 request.onsuccess = function(event) {
     db = request.result;
