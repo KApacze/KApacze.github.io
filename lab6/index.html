@@ -94,11 +94,11 @@
         <form>
             <div>
                 <label>Imie</label>
-                <input type="text" id="fname_edit" disabled >
+                <input type="text" id="fname_edit" pattern="[A-Za-z]+" disabled >
             </div>
             <div>
                 <label>Nazwisko</label>
-                <input type="text" id="fsurname_edit" disabled>
+                <input type="text" id="fsurname_edit" pattern="[A-Za-z]+" disabled>
             </div>
             <div>
                 <label>Adres email</label>
@@ -110,7 +110,7 @@
             </div>
             <div>
                 <label for="default_input">Kod pocztowy</label>
-                <input type="text" id="fpost_edit" disabled>
+                <input type="text" id="fpost_edit" pattern="[0-9]{5}" disabled>
             </div>
             <div>
                 <label for="default_input">Numer dowodu</label>
