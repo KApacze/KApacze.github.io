@@ -3,6 +3,14 @@
     <title>Lab5</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <style>
+        input:valid {
+          border-color: green;
+        }
+        input:invalid {
+          border-color: red;
+        }
+        </style>
 </head>
 <body>
 <div id="container">
@@ -11,11 +19,11 @@
         <form>
             <div>
                 <label>Imie</label>
-                <input type="text" id="fname" placeholder="Jan" >
+                <input type="text" id="fname" placeholder="Jan" pattern="[A-Za-z]+">
             </div>
             <div>
                 <label>Nazwisko</label>
-                <input type="text" id="fsurname" placeholder="Kowalski" >
+                <input type="text" id="fsurname" placeholder="Kowalski" pattern="[A-Za-z]+">
             </div>
             <div>
                 <label>Adres email</label>
@@ -27,7 +35,7 @@
             </div>
             <div>
                 <label for="default_input">Kod pocztowy</label>
-                <input type="text" id="fpost" placeholder="60-200">
+                <input type="text" id="fpost" placeholder="60-200" pattern="[0-9]{5}">
             </div>
             <div>
                 <label for="default_input">Numer dowodu</label>

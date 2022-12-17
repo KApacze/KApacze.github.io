@@ -15,7 +15,7 @@ const clientData = [
     { name: "piotr", surname: "nowak", email: "piotr.nowak@gmail.com", phone: "500600701", post: "70050", civilId: "GRA156541" }
 ];
 
-var db;
+var db  = window.indexedDB.open("clientDatabase");
 var request = window.indexedDB.open("clientDatabase", 1);
 
 
