@@ -98,6 +98,7 @@ function loadTable() {
 
 function filterTable() {
     searchedPhrase = $('#searchField').val();
+    searchedPhrase = document.getElementById("searchField");
     var employees = "";
     $('.employee').remove();
 
@@ -120,11 +121,11 @@ function filterTable() {
                 '<td class="Imie">' + cursor.value.name + '</td>' +
                 '<td class="Nazwisko">' + cursor.value.surname + '</td>' +
                 '<td class="Email">' + cursor.value.email + '</td>' +
-                 '<td class="Telefon">' + cursor.value.phone + '</td>' +
-                 '<td class="Kod pocztowy">' + cursor.value.post + '</td>' +
-                 '<td class="Nr dowodu">' + cursor.value.civilId + '</td>' +
-                 '<td class="Delete button"><button style="background-color:red;" onClick="deleteClientById(\'' + cursor.key + '\')">X</button>' +
-                 '<td class="Edit button"><button style="background-color:blue;" onClick="editClientOfId(\'' + cursor.key + '\')">Edytuj</button>' +
+                '<td class="Telefon">' + cursor.value.phone + '</td>' +
+                '<td class="Kod pocztowy">' + cursor.value.post + '</td>' +
+                '<td class="Nr dowodu">' + cursor.value.civilId + '</td>' +
+                '<td class="Delete button"><button style="background-color:red;" onClick="deleteClientById(\'' + cursor.key + '\')">X</button>' +
+                '<td class="Edit button"><button style="background-color:blue;" onClick="editClientOfId(\'' + cursor.key + '\')">Edytuj</button>' +
                 '</tr>');
             }
             cursor.continue(); // wait for next event

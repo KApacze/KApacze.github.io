@@ -63,8 +63,8 @@
     <div id="client_list">
         <h2>Tabela klientów</h2>
         <div id="filter_clients">
-            <input id="searchField" type="text" placeholder="Przeszukaj table"/>
-            <button onClick=filterTable()>Szukaj</button>
+            <input id="searchField" type="text" placeholder="Przeszukaj table" onkeyup="filterTable()"/>
+            <!-- <button onClick=filterTable()>Szukaj</button> -->
             <button onClick=loadTable()>Odśwież całą tabelę</button>
             <br/>
         </div>
